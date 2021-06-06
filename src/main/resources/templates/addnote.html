@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/addNote.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="login_sucess::header"></div>
+<div style="width: 20%; border: 1px solid silver; position: relative; margin: auto; top: 30px">
+    <form action="/addnote" method="post" th:object="${note}">
+        <div class="col mb-3" style="text-align: center">
+            <label class="col-sm-4 col-form-label">Tiêu Đề</label>
+            <div class="col-sm-7" style="position: relative;left: 65px">
+                <input type="text" class="form-control" th:field="*{title}">
+            </div>
+        </div>
+        <div class="col mb-3" style="text-align: center">
+            <label class="col-sm-4 col-form-label">Nội Dung</label>
+            <div class="col-sm-9" style="position: relative;left: 38px">
+                <textarea rows="5" cols="20" name="content" class="form-control" ></textarea>
+            </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 20px">
+            <button class="btn btn-outline-success" type="submit">Thêm Vào
+            </button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

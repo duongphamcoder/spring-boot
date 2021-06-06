@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="login_sucess::header"></div>
+<div>
+    <div class="d-flex justify-content-end">
+        <form action="/listnote" method="post">
+            <div class="d-flex" style="margin-top: 20px; position: relative; right: 62px">
+                <div class="row mb-0">
+                    <div class="col-sm-11">
+                        <input type="text" class="form-control" name="search" placeholder="Nhập tên ghi chú cần tìm">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary" >Tìm Kiếm</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="d-flex" style="margin-top: 20px">
+        <div th:each="note:${notes}"
+             style="border: 1px solid black; width: 300px; margin-right: 20px; margin-left: 30px; text-align: center">
+            <i > <label th:text="${note.date}" style="position: relative; left: -100px">dsadsadsad</label></i> <br>
+            <b><label th:text="*{note.title}">đasadsad</label></b> <br>
+            <a th:href="@{/listnote=} + ${note.id}">
+                <button type="submit" class="btn btn-secondary" style="margin-top: 10px; margin-bottom: 10px">Xem</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
